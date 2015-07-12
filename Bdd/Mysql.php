@@ -9,6 +9,16 @@
 namespace Mv\Cp\Bdd;
 
 /**
+ * Usages:
+ *          Mysql::create()->multi('SELECT * FROM table');
+ *          Mysql::create()->unique('SELECT * FROM table');
+ *          Mysql::create()->insert('INSERT INTO table (col1, col2) VALUES ("value1", "value2")');
+ *          Mysql::create()->insert('UPDATE table SET col1 = "value1" WHERE col2 = "value2"');
+ *
+ * or
+ *          $mysql = new Mysql();
+ * and      $mysql instead of Mysql::create()
+ *
  * Class Mysql
  * @package Mv\Cp\Bdd
  * @author Michaël VEROUX
@@ -73,4 +83,14 @@ class Mysql implements MysqlOldInterface
         return;
     }
 
+    /**
+     * @return static
+     * @author Michaël VEROUX
+     */
+    static public function create()
+    {
+        $mysql = new static();
+
+        return $mysql;
+    }
 }

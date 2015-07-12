@@ -8,6 +8,11 @@
 namespace Mv\Cp\Converter;
 
 /**
+ * Usages:
+ *          DateNumero::createFromNumber(6)->dateFr(); // return 01/03/2008
+ *          DateNumero::createFromDate('25/03/2008')->number(); // return 6
+ *          DateNumero::createFromDate(new \DateTime())->number(); // return current
+ *
  * Class DateNumero
  * @package Mv\Cp\Converter
  * @author Michaël VEROUX
@@ -189,8 +194,9 @@ class DateNumero
             throw new \RuntimeException(sprintf('Bad date "%s" given.', $date));
         } elseif (!$date instanceof \DateTime) {
             $date = \DateTime::createFromFormat(static::DATE_FR_FORMAT, $date);
-            $date->setTime(0, 0);
         }
+
+        $date->setTime(0, 0);
 
         $date->setDate((int) $date->format('Y'), (int) $date->format('m'), 1); // to limit side effect
         $dateNumero = new static(null, $date);

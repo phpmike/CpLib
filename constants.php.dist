@@ -1,0 +1,13 @@
+<?php
+define('DB_NAME', null);
+define('DB_HOSTNAME', null);
+define('DB_USER', null);
+define('DB_PASSWORD', null);
+
+define('NAME', 'Côt&Pêche');
+define('ROOT_DIR', __DIR__ . '../');
+define('CONTENU_DIR_PATTERN', ROOT_DIR . 'contenu/N%s/');
+define('MINI_BIG','mini_205x132');
+define('MINI_SMALL','mini_66x47');
+define('SLOGAN', 'Magazine multimédia des passionnés de pêche en mer');
+define('DESCRIPTION', 'Version internet du célèbre magazine de pêche en mer disponible avec son DVD dans les kiosques à journaux...');

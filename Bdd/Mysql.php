@@ -84,6 +84,19 @@ class Mysql implements MysqlOldInterface
     }
 
     /**
+     * @param string $string
+     * @param int    $type
+     *
+     * @return string
+     * @author Michaël VEROUX
+     */
+    public function quote($string, $type = \PDO::PARAM_STR) {
+        $quoted = $this->pdo->quote($string, $type);
+
+        return $quoted;
+    }
+
+    /**
      * @return static
      * @author Michaël VEROUX
      */
